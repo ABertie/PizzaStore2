@@ -2,10 +2,10 @@
 {
     public int Number;
     public string Name;
-    public string Toppings;
+    public List<Topping> Toppings;
     public int Price;
 
-    public Pizza(int number, string name, string toppings, int price)
+    public Pizza(int number, string name, List<Topping> toppings, int price)
     {
         Number = number;
         Name = name;
@@ -15,9 +15,15 @@
 
     public override string ToString()
     {
+        string toppings = "";
+        foreach (Topping topping in Toppings) {
+            if (toppings == "") { toppings += topping.Filing; }
+            else { toppings += ", " + topping.Filing; }
+        }
+
         return $$"""
-            {{Number}}  {{Name + Name.Count() % 12 }}                {{Price}} kr.
-                {{Toppings}}
+            {{Number}}  {{Name}}                    {{Price}} kr.
+                {{toppings}}
             """;
     }
 }
