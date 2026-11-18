@@ -1,12 +1,24 @@
-﻿Dictionary<int, Pizza> Menu = [];
-Toppings toppings = new();
-Menu.Add(1, new Pizza(1, "Margherita", [toppings.Get("Tomato"), toppings.Get("Chesse")], 69));
-//Menu.Add(2, new Pizza(2, "Vesuvio", "Tomato, cheese & ham", 75));
-//Menu.Add(3, new Pizza(3, "Capricciosa", "Tomato, cheese, ham & mushrooms", 80));
+﻿PizzaMenu Menu = new();
 
-foreach (var item in toppings.GetAllByPrice(10))
+//Menu.Print();
+PrintPizzas(Menu.PriceRange(80, 70));
+PrintLine();
+PrintPizzas(Menu.Seach("ca"));
+PrintLine();
+PrintPizzas(Menu.GetList(5, 10));
+
+static void PrintPizzas(List<Pizza> list)
 {
-    Console.WriteLine(item);
+    foreach (var item in list)
+    {
+        Console.WriteLine(item);
+    }
+}
+
+void PrintLine()
+{
+    Console.WriteLine("----------------------------");
+    Console.WriteLine();
 }
 
 //Order firstOrder = new(new Customer("Phill"), Menu[1], 2);

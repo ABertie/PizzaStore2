@@ -22,8 +22,9 @@
         }
 
         return $$"""
-            {{Number}}  {{Name}}                    {{Price}} kr.
-                {{toppings}}
+            {{Number}}{{String.Concat(Enumerable.Repeat(" ", 4 - Number.ToString().Length))}}{{Name.ToUpper()}} {{String.Concat(Enumerable.Repeat(".", 50 - Name.Length))}} {{Price}} kr.
+                 {{toppings}}
+
             """;
     }
 }
